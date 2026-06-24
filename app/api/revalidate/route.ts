@@ -1,4 +1,4 @@
-import { revalidatePath, revalidateTag } from 'next/cache'
+import { revalidatePath } from 'next/cache'
 import { type NextRequest, NextResponse } from 'next/server'
 
 /**
@@ -20,15 +20,12 @@ export async function POST(req: NextRequest) {
     const slug: string | undefined = body?.slug?.current ?? body?.slug
 
     if (slug) {
-      // Revalidar solo el post modificado
       revalidatePath(`/blog/${slug}`)
-      revalidateTag(`post:${slug}`)
     }
 
     // Revalidar listados siempre
     revalidatePath('/')
     revalidatePath('/blog')
-    revalidateTag('post')
 
     return NextResponse.json({ revalidated: true, slug: slug ?? 'all', timestamp: Date.now() })
   } catch {
