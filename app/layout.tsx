@@ -31,11 +31,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: { default: 'Narratix', template: '%s — Narratix' },
-  description: 'Blog sobre desarrollo web moderno, TypeScript, Next.js y diseño de interfaces.',
+  description: 'A blog about modern web development, TypeScript, Next.js and interface design.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
   openGraph: {
     type: 'website',
-    locale: 'es_CO',
+    locale: 'en_US',
     siteName: 'Narratix',
   },
   twitter: { card: 'summary_large_image' },
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       {/*
         Script inline antes de cualquier render:
         lee localStorage y aplica data-theme al <html> para evitar FOUC.
