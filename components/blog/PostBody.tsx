@@ -35,15 +35,15 @@ export async function PostBody({ value }: Props) {
   const components: PortableTextComponents = {
     block: {
       h2: ({ children, value: v }) => {
-        const text = v.children?.map((c: { text: string }) => c.text).join('') ?? ''
+        const text = v.children?.map((c: any) => c.text).join('') ?? ''
         return <h2 id={slugify(text)}>{children}</h2>
       },
       h3: ({ children, value: v }) => {
-        const text = v.children?.map((c: { text: string }) => c.text).join('') ?? ''
+        const text = v.children?.map((c: any) => c.text).join('') ?? ''
         return <h3 id={slugify(text)}>{children}</h3>
       },
       h4: ({ children, value: v }) => {
-        const text = v.children?.map((c: { text: string }) => c.text).join('') ?? ''
+        const text = v.children?.map((c: any) => c.text).join('') ?? ''
         return <h4 id={slugify(text)}>{children}</h4>
       },
     },
